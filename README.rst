@@ -3,23 +3,25 @@ Abstract
 
 ACME Corporate Network (ACN) helps you setup a, VirtualBox based, internal network for experimental purposes where you can mix Linux, Windows and other operating systems supported by VirtualBox. A virtual machine acts as a NAT-firewall between the lab network and your host.
 
+Machines
+--------
+
 Acme Router
------------
+###########
 
-The Virtual Firewall is preloaded with:
+The Acme Router is configured as multi-homed Firewall with one NIC facing the Hypervisor, and one NIC facing the ACME internal network.
 
-- bind9
-- udhcpd
-- iptables
-- ansible
+Bind9 is configured as DNS in the com.local domain. Udhcp is enabled on the ACME internal network.
+
+Ansible is installed on the router and is then used for provisioning of the rest of the network.
 
 Acme Domain Controller
-----------------------
+######################
 
 The Acme Domain Controller is provisioned with samba and configured as a AD DC in the AMCE.COM.LOCAL domain
 
 Acme Workstation
-----------------
+################
 
 The Acme Workstation is provisioned with SSSD and joined to Acme Domain Controller
 
