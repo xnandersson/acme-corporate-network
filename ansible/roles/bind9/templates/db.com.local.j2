@@ -1,0 +1,11 @@
+com.local. IN SOA router.com.local. admin.com.local (
+        1       ; Serial
+        3h      ; Refresh after 3 hours
+        1h      ; Retry after 1 hour
+        1w      ; Expire after 1 week
+        1h )    ; Negative caching TTL of 1 hour
+localhost   IN A    127.0.0.1
+router      IN A    192.168.42.1
+dc          IN A    192.168.42.2
+gw          IN CNAME    router
+com.local.  IN  NS  router 

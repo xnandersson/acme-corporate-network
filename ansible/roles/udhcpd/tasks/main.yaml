@@ -1,0 +1,23 @@
+- name: install packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+     - udhcpd
+
+- name: set the udhcpd.conf file
+  template: src=udhcpd.conf.j2 dest=/etc/udhcpd.conf
+  notify: restart udhcpd
+
+- name: udhcpd
+  copy:
+    src: udhcpd
+    dest: /etc/default/udhcpd
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart udhcpd
+
+- name: udhcpd
+  service: name=udhcpd state=started enabled=yes

@@ -1,0 +1,15 @@
+eth2_interface: enp0s8
+eth2_interface_address: 192.168.42.1
+eth2_interface_netmask: 255.255.255.0
+eth_interface: eth0
+
+dc_in_a: 192.168.42.2
+dc_macaddress: 08:00:27:23:89:C6
+
+udhcpd_start: 192.168.42.2
+udhcpd_end: 192.168.42.20
+udhcpd_remaining: "yes"
+udhcpd_opt_dns: 192.168.42.1
+udhcpd_opt_router: 192.168.42.1
+udhcpd_opt_lease: 864000
+udhcpd_opt_subnet: 255.255.255.0

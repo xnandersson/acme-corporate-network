@@ -1,0 +1,10 @@
+[dcs]
+dc
+
+[routers]
+dc
+
+[servers:vars]
+ansible_ssh_user=deploy
+ansible_ssh_pass=Secret007!
+ansible_become_pass=Secret007!

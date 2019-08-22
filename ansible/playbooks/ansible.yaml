@@ -1,0 +1,5 @@
+---
+- name: ansible 
+  hosts: routers 
+  roles:
+   - role: ansible 

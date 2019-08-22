@@ -1,0 +1,10 @@
+[servers]
+acn_router2
+
+[routers]
+acn_router2
+
+[servers:vars]
+ansible_ssh_user=deploy
+ansible_ssh_private_key_file=/home/nandersson/.ssh/id_rsa
+ansible_become_pass=Secret007!

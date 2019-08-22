@@ -1,0 +1,26 @@
+- name: network
+  template: src=01-netcfg.yaml.j2 dest=/etc/netplan/01-netcfg.yaml
+  notify: netplan apply
+
+- name: enable ip_forward
+  shell: echo 1 > /proc/sys/net/ipv4/ip_forward
+
+- name: set sysctl
+  lineinfile:
+    path: /etc/sysctl.conf
+    regexp: ^#net.ipv4.ip_forward
+    line: net.ipv4.ip_forward=1
+
+- name: set iptables
+  template: src=iptables.ipv4.nat.j2 dest=/etc/iptables.ipv4.nat
+  notify: restart iptables
+
+- name: iptables service
+  template: src=iptables.service.j2 dest=/etc/systemd/system/iptables.service
+  notify: restart iptables
+
+- name: iptables service enable
+  service: name=iptables enabled=yes
+
+- name: start iptables
+  command: /usr/sbin/iptables-restore /etc/iptables.ipv4.nat

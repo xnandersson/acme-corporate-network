@@ -1,0 +1,5 @@
+- name: netplan apply
+  shell: netplan apply
+
+- name: restart iptables
+  command: /usr/sbin/iptables-restore /etc/iptables.ipv4.nat

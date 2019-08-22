@@ -1,0 +1,5 @@
+---
+- name: router 
+  hosts: routers 
+  roles:
+   - role: router 

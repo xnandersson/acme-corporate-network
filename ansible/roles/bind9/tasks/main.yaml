@@ -1,0 +1,15 @@
+- name: install packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+    - bind9 
+
+- name: config file 
+  template: src=named.conf.local.j2 dest=/etc/bind/named.conf.local
+  notify: restart bind9
+
+- name: zone file 
+  template: src=db.com.local.j2 dest=/etc/bind/db.com.local
+  notify: restart bind9

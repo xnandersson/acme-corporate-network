@@ -1,0 +1,10 @@
+[Unit]
+Description=Set iptables
+
+[Service]
+ExecStart=/usr/sbin/iptables-restore /etc/iptables.ipv4.nat
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
