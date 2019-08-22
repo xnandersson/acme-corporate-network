@@ -10,6 +10,8 @@ Aim is to automate as much as possible. Unattended installations, ansible provis
 Pre-requisites
 --------------
 
+.. code:: bash
+
   $ sudo apt-get -y install ansible virtualbox
 
 Setup
@@ -17,10 +19,10 @@ Setup
 
 .. code:: bash
 
-  $ src/acn_router.sh
+  $ src/mk_router.sh
   # Do the install with user/pass: deploy/Secret007! and hostname: ubuntu
 
-On ACN Router
+On Acme Router
 -------------
 
 .. code:: bash

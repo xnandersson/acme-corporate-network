@@ -13,3 +13,4 @@ udhcpd_opt_dns: 192.168.42.1
 udhcpd_opt_router: 192.168.42.1
 udhcpd_opt_lease: 864000
 udhcpd_opt_subnet: 255.255.255.0
+udhcpd_opt_domain: com.local
