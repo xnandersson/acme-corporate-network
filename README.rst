@@ -27,9 +27,6 @@ On Acme Router
 
 .. code:: bash
 
-  # Check ip on VBOX_BRIDGEADAPTER # 192.168.1.169
-  $ sudo echo 192.168.1.169 acn_router >> /etc/hosts
-  # Install python
   $ sudo apt-get install -y python
 
 On Hypervisor
@@ -37,19 +34,14 @@ On Hypervisor
 
 .. code:: bash
 
-  # Verify Access
-  $ ssh acn@acn_router -i ~/.ssh/id_rsa
-  # Verify that Ansible works
-  $ ansible -m ping acn_router
-  $ ansible acn_router -a 'id'
+  $ echo 192.168.1.169 acme_router >> /etc/hosts
+  $ ansible -m ping acme_router
+  $ ansible acme_router -a 'id'
   $ ansible-playbook playbooks/bind9.yaml
+  $ ansible-playbook playbooks/router.yaml
+  $ ansible-playbook playbooks/ansible.yaml
+  $ ansible-playbook playbooks/udhcpd.yaml
 
-Setup ACN Router
-----------------
-- iptables
-- dhcp
-- named
-  
 Links
 -----
 - http://gyk.lt/ubuntu-16-04-desktop-unattended-installation/

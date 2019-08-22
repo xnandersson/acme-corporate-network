@@ -5,3 +5,24 @@
   vars:
     packages:
      - ansible 
+     - sshpass
+
+- name: copy playbooks
+  copy:
+    src: playbooks
+    dest: /etc/ansible/
+
+- name: copy roles
+  copy:
+    src: roles
+    dest: /etc/ansible
+
+- name: copy ansible.cfg
+  copy:
+    src: ansible.cfg
+    dest: /etc/ansible/ansible.cfg
+
+- name: copy hosts
+  copy:
+    src: hosts
+    dest: /etc/ansible/hosts

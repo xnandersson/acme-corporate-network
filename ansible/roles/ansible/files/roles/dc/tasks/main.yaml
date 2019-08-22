@@ -1,0 +1,11 @@
+- name: set hosts
+  lineinfile:
+    path: /etc/hosts
+    regexp: ^127.0.1.1
+    line: 127.0.1.1 {{ hostname }}
+
+- name: set /etc/hostname
+  copy:
+    dest: "/etc/hostname"
+    content: "{{ hostname }}"
+  notify: set hostname
