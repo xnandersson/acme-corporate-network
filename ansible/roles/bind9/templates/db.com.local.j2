@@ -7,6 +7,7 @@ com.local. IN SOA router.com.local. admin.com.local (
 localhost   IN A    127.0.0.1
 router      IN A    192.168.42.1
 dc.{{ samba_default_realm|lower}}.          IN A    192.168.42.2
+dc          IN A    192.168.42.2
 gw          IN CNAME    router
 com.local.  IN  NS  router
 {{ samba_default_realm|lower }}.  IN NS dc.{{ samba_default_realm|lower }}.
