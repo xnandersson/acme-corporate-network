@@ -4,3 +4,6 @@
   roles:
    - role: router 
    - role: sudo
+   - role: ansible
+   - role: udhcpd
+   - role: bind9

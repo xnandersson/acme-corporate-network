@@ -1,5 +1,0 @@
----
-- name: bind9 
-  hosts: routers 
-  roles:
-   - role: bind9

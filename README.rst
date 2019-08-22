@@ -26,16 +26,5 @@ Setup
   # Do the install with user/pass: deploy/Secret007!
   # Install the python-package and retrive
   # the ipaddress for facing the hypervisor
-
-On Hypervisor
--------------
-
-.. code:: bash
-
   $ echo 192.168.1.169 acme_router >> /etc/hosts
-  $ ansible -m ping acme_router
-  $ ansible acme_router -a 'id'
-  $ ansible-playbook playbooks/bind9.yaml
   $ ansible-playbook playbooks/router.yaml
-  $ ansible-playbook playbooks/ansible.yaml
-  $ ansible-playbook playbooks/udhcpd.yaml
