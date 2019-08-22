@@ -1,0 +1,8 @@
+---
+- name: Active Directory Domain Client 
+  hosts: workstations 
+  roles:
+   - role: network-debug 
+   - role: hostname
+   - role: sudo
+   - role: sssd

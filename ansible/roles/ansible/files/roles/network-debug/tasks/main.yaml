@@ -1,0 +1,14 @@
+- name: apt packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+     - iproute2
+     - iputils-ping
+     - ldap-utils
+     - tshark
+     - nmap
+     - net-tools
+     - iputils-tracepath
+     - dnsutils

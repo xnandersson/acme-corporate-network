@@ -1,0 +1,4 @@
+default_realm: ACME.COM.LOCAL
+admin_server: dc.acme.com.local
+kerberos_servers: dc.acme.com.local
+samba_adminpass: Abc123!

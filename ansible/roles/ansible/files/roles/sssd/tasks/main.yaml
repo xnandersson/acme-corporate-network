@@ -1,0 +1,60 @@
+- name: krb5-config.debconf
+  template: src=krb5-config.debconf.j2 dest=/tmp/krb5-config.debconf
+
+- name: install debconf-set-selections
+  apt:
+    name: debconf
+    update_cache: yes
+
+- name: debconf-set-selections
+  command: /usr/bin/debconf-set-selections /tmp/krb5-config.debconf
+
+- name: service dbus
+  service: name=dbus state=started enabled=yes
+
+- name: krb5.conf
+  template: src=krb5.conf.j2 dest=/etc/krb5.conf
+
+- name: realmd.conf
+  template: src=realmd.conf.j2 dest=/etc/realmd.conf
+
+- name: apt packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+     - sssd
+     - dbus
+     - policykit-1
+     - packagekit
+     - smbclient
+     - cifs-utils
+     - sssd-tools
+     - libpam-modules
+     - debconf
+     - krb5-user
+
+- name: fetch kerberos ticket 
+  shell: echo {{ samba_adminpass }} | kinit  Administrator@{{ default_realm }}
+
+- name: join domain
+  command: realm -v join {{ default_realm }}
+
+- name: mkhomedir
+  copy: src=mkhomedir dest=/usr/share/pam-configs/mkhomedir
+  copy: src=mkhomedir.debconf dest=/tmp/mkhomedir.debconf
+  command: /usr/bin/debconf-set-selections /tmp/mkhomedir.debconf
+  command: rm /etc/pam.d/common-session /etc/pam.d/common-session-noninteractive
+
+- name: pam-auth-update
+  shell: pam-auth-update --force
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+
+- name: sssd service
+  service: name=sssd state=started enabled=yes
+
+- name: sssd.conf
+  template: src=sssd.conf.j2 dest=/etc/sssd/sssd.conf
+  notify: restart sssd
