@@ -17,6 +17,7 @@
   vars:
     packages:
      - samba
+     - winbind
 
 - name: remove smb.conf
   command: rm /etc/samba/smb.conf
