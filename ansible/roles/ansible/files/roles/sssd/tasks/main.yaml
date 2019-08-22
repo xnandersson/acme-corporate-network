@@ -41,10 +41,16 @@
 - name: join domain
   command: realm -v join {{ default_realm }}
 
-- name: mkhomedir
+- name: mkhomedir pamconfig
   copy: src=mkhomedir dest=/usr/share/pam-configs/mkhomedir
+
+- name: mkhomedir.debconf
   copy: src=mkhomedir.debconf dest=/tmp/mkhomedir.debconf
+
+- name: mkhomedir debconf-set-selections
   command: /usr/bin/debconf-set-selections /tmp/mkhomedir.debconf
+
+- name: clean pam.d
   command: rm /etc/pam.d/common-session /etc/pam.d/common-session-noninteractive
 
 - name: pam-auth-update
