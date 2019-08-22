@@ -1,0 +1,2 @@
+ansible/roles/ssh/files/id_rsa
+ansible/roles/ssh/files/id_rsa.pub

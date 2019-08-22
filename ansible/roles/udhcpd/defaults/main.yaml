@@ -1,10 +1,12 @@
 eth2_interface: enp0s8
 eth2_interface_address: 192.168.42.1
 eth2_interface_netmask: 255.255.255.0
-eth_interface: eth0
 
 dc_in_a: 192.168.42.2
 dc_macaddress: 08:00:27:23:89:C6
+
+workstation_macaddress: 08:00:27:23:89:C8
+workstation_static_lease: 192.168.42.10
 
 udhcpd_start: 192.168.42.2
 udhcpd_end: 192.168.42.20

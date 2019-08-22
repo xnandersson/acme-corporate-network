@@ -39,8 +39,21 @@ Setup
 .. code:: bash
 
   $ src/mk_router.sh
+  # Create the keys and add the Router Private Key to your keys
+  $ src/mk_keys.sh
+  $ cp ansible/roles/ssh/files/deploy_rsa ~/.ssh
   # Do the install with user/pass: deploy/Secret007!
   # Install the python-package and retrive
   # the ipaddress for facing the hypervisor
   $ echo 192.168.1.169 acme_router >> /etc/hosts
   $ ansible-playbook playbooks/router.yaml
+
+~/.ssh/config
+-------------
+
+.. code:: bash
+
+  Host acme_router
+    HostName acme_router
+    user deploy
+    IdentityFile ~/.ssh/deploy_rsa

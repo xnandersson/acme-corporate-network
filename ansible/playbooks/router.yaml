@@ -7,3 +7,4 @@
    - role: ansible
    - role: udhcpd
    - role: bind9
+   - role: ssh

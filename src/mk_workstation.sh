@@ -4,6 +4,7 @@ source local.config
 
 VBOX_NAME="Acme Workstation"
 VBOX_NAME_ALPHANUMERIC="acmeworkstation"
+VBOX_NIC_MACADDRESS=0800272389C8
 
 VBoxManage createvm --name "${VBOX_NAME}" --ostype ${VBOX_OSTYPE} --register
 VBoxManage createmedium --filename "${VBOX_DIR}/${VBOX_NAME}/${VBOX_NAME_ALPHANUMERIC}.vdi" --size 20240
@@ -17,3 +18,4 @@ VBoxManage modifyvm "${VBOX_NAME}" --boot1 dvd --boot2 disk --boot3 none --boot4
 VBoxManage modifyvm "${VBOX_NAME}" --cpus 2
 VBoxManage modifyvm "${VBOX_NAME}" --audio none
 VBoxManage modifyvm "${VBOX_NAME}" --nic1 intnet
+VBoxManage modifyvm "${VBOX_NAME}" --macaddress1 ${VBOX_NIC_MACADDRESS}
