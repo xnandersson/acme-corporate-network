@@ -1,11 +1,14 @@
 Abstract
 --------
 
-ACME Corporate Network (ACN) helps you setup a, VirtualBox based, internal network for experimental purposes. A dedicated virtual machine acts as a router or firewall between the lab network and your host.
+ACME Corporate Network (ACN) helps you setup a, VirtualBox based, internal network for experimental purposes where you can mix Linux, Windows and other operating systems supported by VirtualBox. A virtual machine acts as a NAT-firewall between the lab network and your host.
 
-In a purely Linux world, docker would be a much better fit, but in the cases where your experiments involves Windows I chose VirtualBox.
+The Virtual Firewall is preloaded with:
 
-Aim is to automate as much as possible. Unattended installations, ansible provisioning and/or internal docker containers.
+- bind9
+- udhcpd
+- iptables
+- ansible
 
 Pre-requisites
 --------------
@@ -20,14 +23,9 @@ Setup
 .. code:: bash
 
   $ src/mk_router.sh
-  # Do the install with user/pass: deploy/Secret007! and hostname: ubuntu
-
-On Acme Router
--------------
-
-.. code:: bash
-
-  $ sudo apt-get install -y python
+  # Do the install with user/pass: deploy/Secret007!
+  # Install the python-package and retrive
+  # the ipaddress for facing the hypervisor
 
 On Hypervisor
 -------------
@@ -41,7 +39,3 @@ On Hypervisor
   $ ansible-playbook playbooks/router.yaml
   $ ansible-playbook playbooks/ansible.yaml
   $ ansible-playbook playbooks/udhcpd.yaml
-
-Links
------
-- http://gyk.lt/ubuntu-16-04-desktop-unattended-installation/
