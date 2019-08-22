@@ -1,2 +1,2 @@
 - name: set hostname
-  command: hostname -b {{ hostname }}
+  shell: hostname -b {{ hostname }}
