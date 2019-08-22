@@ -16,6 +16,7 @@ Pre-requisites
 .. code:: bash
 
   $ sudo apt-get -y install ansible virtualbox
+  $ wget http://cdimage.ubuntu.com/ubuntu-server/daily/current/eoan-server-amd64.iso --directory-prefix="${HOME}/Downloads"
 
 Setup
 -----
