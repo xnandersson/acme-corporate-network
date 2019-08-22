@@ -1,2 +1,5 @@
 - name: set hostname
   command: hostname -b {{ hostname }}
+
+- name: restart resolved
+  service: name=systemd-resolved state=restarted

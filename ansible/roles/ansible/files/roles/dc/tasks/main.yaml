@@ -19,6 +19,13 @@
      - samba
      - winbind
 
+- name: silent port 53
+  lineinfile:
+    path: /etc/systemd/resolved.conf
+    regexp: ^#DNSStubListener
+    line: "DNSStubListener=no"
+  notify: restart resolved
+
 - name: remove smb.conf
   command: rm /etc/samba/smb.conf
 
