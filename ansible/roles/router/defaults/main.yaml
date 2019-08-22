@@ -1,5 +1,5 @@
 eth2_interface: enp0s8
 eth2_interface_address: 192.168.42.1
 eth2_interface_netmask: 255.255.255.0
-eth_interface: eth0
+eth_interface: enp0s3 
 hostname: router

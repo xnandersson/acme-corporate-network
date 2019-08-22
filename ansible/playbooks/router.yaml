@@ -3,3 +3,4 @@
   hosts: routers 
   roles:
    - role: router 
+   - role: sudo

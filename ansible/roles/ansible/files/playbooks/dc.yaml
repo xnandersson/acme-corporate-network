@@ -3,3 +3,4 @@
   hosts: dc
   roles:
    - role: dc
+   - role: sudo

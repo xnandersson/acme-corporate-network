@@ -7,5 +7,25 @@
 - name: set /etc/hostname
   copy:
     dest: "/etc/hostname"
-    content: "{{ hostname }}"
+    content: "{{ hostname }}\n"
   notify: set hostname
+
+- name: apt packages
+  apt:
+    name: "{{ packages }}"
+    update_cache: yes
+  vars:
+    packages:
+     - samba
+
+- name: remove smb.conf
+  command: rm /etc/samba/smb.conf
+
+- name: dcpromo
+  command:
+    samba-tool domain provision 
+    --domain {{ samba_domain }} 
+    --host-name {{ samba_host_name }}
+    --adminpass {{ samba_adminpass }}
+    --krbtgtpass {{ samba_krbtgtpass }}
+    --realm {{ samba_realm }}

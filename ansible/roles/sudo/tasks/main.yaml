@@ -1,0 +1,5 @@
+- name: sudoers
+  lineinfile:
+    path: /etc/sudoers
+    regexp: "^%sudo"
+    line: "%sudo ALL=NOPASSWD: ALL"

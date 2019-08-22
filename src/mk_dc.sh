@@ -1,10 +1,11 @@
 #!/bin/bash
 
 VBOX_DIR='/home/nandersson/Virtualbox\ VMs/'
-VBOX_NAME="Acn DC"
-VBOX_NAME_ALPHANUMERIC="acndc"
+VBOX_NAME="Acme DC"
+VBOX_NAME_ALPHANUMERIC="acmedc"
 VBOX_OSTYPE=Ubuntu_64
 VBOX_ISO="/home/nandersson/Downloads/eoan-server-amd64.iso"
+#VBOX_ISO="/home/nandersson/Downloads/ubuntu-18.04.3-live-server-amd64.iso"
 VBOX_MEMORY="512"
 VBOX_VRAM="128"
 VBOX_NIC_MACADDRESS=0800272389C6
@@ -21,4 +22,4 @@ VBoxManage modifyvm "${VBOX_NAME}" --boot1 dvd --boot2 disk --boot3 none --boot4
 VBoxManage modifyvm "${VBOX_NAME}" --cpus 2
 VBoxManage modifyvm "${VBOX_NAME}" --audio none
 VBoxManage modifyvm "${VBOX_NAME}" --nic1 intnet
-VBoxManage modifyvm "${VBOX_NAME}" --macaddress ${VBOX_NIC_MACADDRESS} 
+VBoxManage modifyvm "${VBOX_NAME}" --macaddress1 ${VBOX_NIC_MACADDRESS} 
