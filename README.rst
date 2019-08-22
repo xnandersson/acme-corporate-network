@@ -11,19 +11,19 @@ Acme Router
 
 The Acme Router is configured as multi-homed Firewall with one NIC facing the Hypervisor, and one NIC facing the ACME internal network.
 
-Bind9 is configured as DNS in the com.local domain. Udhcp is enabled on the ACME internal network.
+Bind9 is configured as DNS in the COM.LOCAL domain. Udhcp is enabled on the ACME Internal Network.
 
-Ansible is installed on the router and is then used for provisioning of the rest of the network.
+A set of Ansible Playbooks are installed on the Acme Router together with ansible, and then used for provisioning of the rest of the network.
 
 Acme Domain Controller
 ######################
 
-The Acme Domain Controller is provisioned with samba and configured as a AD DC in the AMCE.COM.LOCAL domain
+The Acme Domain Controller is provisioned with Samba and configured as a Domain Controller in the ACME.COM.LOCAL domain.
 
 Acme Workstation
 ################
 
-The Acme Workstation is provisioned with SSSD and joined to Acme Domain Controller
+The Acme Workstation is provisioned with SSSD and joined to Acme Domain Controller in the ACME.COM.LOCAL domain.
 
 Pre-requisites
 --------------
