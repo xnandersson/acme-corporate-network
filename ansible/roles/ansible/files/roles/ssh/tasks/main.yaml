@@ -1,0 +1,11 @@
+- name: ssh
+  file: path=/home/deploy/.ssh state=directory owner=deploy group=deploy
+
+- name: copy deploy_rsa
+  copy: src=deploy_rsa dest=/home/deploy/.ssh/deploy_rsa owner=deploy group=deploy mode=0600
+
+- name: copy deploy_rsa.pub
+  copy: src=deploy_rsa.pub dest=/home/deploy/.ssh/deploy_rsa.pub owner=deploy group=deploy
+
+- name: add to authorized_keys
+  copy: src=deploy_rsa.pub dest=/home/deploy/.ssh/authorized_keys owner=deploy group=deploy

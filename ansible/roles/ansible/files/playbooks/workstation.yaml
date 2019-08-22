@@ -6,3 +6,4 @@
    - role: hostname
    - role: sudo
    - role: sssd
+   - role: ssh

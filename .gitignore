@@ -1,2 +1,4 @@
-ansible/roles/ssh/files/id_rsa
-ansible/roles/ssh/files/id_rsa.pub
+ansible/roles/ssh/files/deploy_rsa
+ansible/roles/ssh/files/deploy_rsa.pub
+ansible/roles/ansible/files/roles/ssh/files/deploy_rsa
+ansible/roles/ansible/files/roles/ssh/files/deploy_rsa.pub
