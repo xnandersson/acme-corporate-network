@@ -2,13 +2,8 @@
 
 source local.config
 
-VBOX_DIR='/home/nandersson/Virtualbox\ VMs/'
 VBOX_NAME="Acme Router"
 VBOX_NAME_ALPHANUMERIC="acmerouter"
-VBOX_OSTYPE=Ubuntu_64
-VBOX_ISO="/home/nandersson/Downloads/eoan-server-amd64.iso"
-VBOX_MEMORY="512"
-VBOX_VRAM="128"
 VBOX_BRIDGEADAPTER="eno1"
 
 VBoxManage createvm --name "${VBOX_NAME}" --ostype ${VBOX_OSTYPE} --register

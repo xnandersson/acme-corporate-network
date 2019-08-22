@@ -4,10 +4,6 @@ source local.config
 
 VBOX_NAME="Acme Workstation"
 VBOX_NAME_ALPHANUMERIC="acmeworkstation"
-VBOX_OSTYPE=Ubuntu_64
-VBOX_ISO="/home/nandersson/Downloads/eoan-server-amd64.iso"
-VBOX_MEMORY="512"
-VBOX_VRAM="128"
 
 VBoxManage createvm --name "${VBOX_NAME}" --ostype ${VBOX_OSTYPE} --register
 VBoxManage createmedium --filename "${VBOX_DIR}/${VBOX_NAME}/${VBOX_NAME_ALPHANUMERIC}.vdi" --size 20240

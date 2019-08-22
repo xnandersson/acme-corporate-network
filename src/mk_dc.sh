@@ -4,10 +4,6 @@ source local.config
 
 VBOX_NAME="Acme Domain Controller"
 VBOX_NAME_ALPHANUMERIC="acmedc"
-VBOX_OSTYPE=Ubuntu_64
-VBOX_ISO="/home/nandersson/Downloads/eoan-server-amd64.iso"
-VBOX_MEMORY="512"
-VBOX_VRAM="128"
 VBOX_NIC_MACADDRESS=0800272389C6
 
 VBoxManage createvm --name "${VBOX_NAME}" --ostype ${VBOX_OSTYPE} --register
