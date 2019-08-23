@@ -8,4 +8,6 @@
   copy:
     dest: "/etc/hostname"
     content: "{{ hostname }}\n"
-  notify: set hostname
+
+- name: set hostname
+  shell: hostname -b {{ hostname }}

@@ -4,6 +4,7 @@ source local.config
 
 VBOX_NAME="Acme Workstation"
 VBOX_NAME_ALPHANUMERIC="acmeworkstation"
+VBOX_ISO="${HOME}/Downloads/ubuntu-18.04.3-live-server-amd64.iso"
 VBOX_NIC_MACADDRESS=0800272389C8
 
 VBoxManage createvm --name "${VBOX_NAME}" --ostype ${VBOX_OSTYPE} --register

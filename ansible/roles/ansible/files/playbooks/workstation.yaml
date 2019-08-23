@@ -5,5 +5,5 @@
    - role: network-debug 
    - role: hostname
    - role: sudo
-   - role: sssd
    - role: ssh
+   - role: sssd
