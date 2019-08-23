@@ -41,6 +41,8 @@
 
 - name: join domain
   command: realm -v join {{ default_realm }}
+  args:
+    creates: /etc/krb5.keytab
 
 - name: mkhomedir pamconfig
   copy: src=mkhomedir dest=/usr/share/pam-configs/mkhomedir
@@ -51,11 +53,18 @@
 - name: mkhomedir debconf-set-selections
   command: /usr/bin/debconf-set-selections /tmp/mkhomedir.debconf
 
-- name: clean pam.d
-  command: rm /etc/pam.d/common-session /etc/pam.d/common-session-noninteractive
+#- name: remove pam common-session
+#  file: 
+#    path: /etc/pam.d/common-session
+#    state: absent
+    
+#- name: remove pam common-session-interactive
+#  file:
+#    path: /etc/pam.d/common-session-noninteractive
+#    state: absent
 
 - name: pam-auth-update
-  shell: pam-auth-update --force
+  shell: rm /etc/pam.d/common-session* && pam-auth-update --force
   environment:
     DEBIAN_FRONTEND: noninteractive
 

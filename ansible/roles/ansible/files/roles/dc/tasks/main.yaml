@@ -12,6 +12,22 @@
 - name: set hostname
   command: hostname -b {{ hostname }}
 
+- name: silent port 53
+  lineinfile:
+    path: /etc/systemd/resolved.conf
+    regexp: ^#DNSStubListener
+    line: "DNSStubListener=no"
+
+- name: link
+  file:
+    src: "/run/systemd/resolve/resolv.conf"
+    dest: "/etc/resolv.conf"
+    state: link
+    force: yes
+
+- name: restart resolved
+  service: name=systemd-resolved state=restarted
+
 - name: apt packages
   apt:
     name: "{{ packages }}"
@@ -21,20 +37,16 @@
      - samba
      - winbind
 
-- name: silent port 53
-  lineinfile:
-    path: /etc/systemd/resolved.conf
-    regexp: ^#DNSStubListener
-    line: "DNSStubListener=no"
-
-- name: restart resolved
-  service: name=systemd-resolved state=restarted
+- name: stop winbind
+  service: name=winbind status=stopped enabled=no
 
 - name: remove smb.conf
-  command: rm /etc/samba/smb.conf
+  file: 
+    path: "/etc/samba/smb.conf"
+    state: absent
 
-- name: stop smb
-  service: name=smb state=stopped enabled=no
+- name: stop smbd
+  service: name=smbd state=stopped enabled=no
 
 - name: dcpromo
   command:
@@ -46,4 +58,4 @@
     --realm {{ samba_realm }}
 
 - name: samba-ad-dc
-  service: name=samba-ad-dc enabled=yes state=started
+  service: name=samba-ad-dc enabled=yes state=started masked=no
