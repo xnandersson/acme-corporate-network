@@ -8,7 +8,9 @@
   copy:
     dest: "/etc/hostname"
     content: "{{ hostname }}\n"
-  notify: set hostname
+
+- name: set hostname
+  command: hostname -b {{ hostname }}
 
 - name: apt packages
   apt:
@@ -24,10 +26,15 @@
     path: /etc/systemd/resolved.conf
     regexp: ^#DNSStubListener
     line: "DNSStubListener=no"
-  notify: restart resolved
+
+- name: restart resolved
+  service: name=systemd-resolved state=restarted
 
 - name: remove smb.conf
   command: rm /etc/samba/smb.conf
+
+- name: stop smb
+  service: name=smb state=stopped enabled=no
 
 - name: dcpromo
   command:
@@ -37,3 +44,6 @@
     --adminpass {{ samba_adminpass }}
     --krbtgtpass {{ samba_krbtgtpass }}
     --realm {{ samba_realm }}
+
+- name: samba-ad-dc
+  service: name=samba-ad-dc enabled=yes state=started

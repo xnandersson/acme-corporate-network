@@ -1,6 +1,6 @@
 hostname: dc
 samba_domain: acme
 samba_host_name: dc
-samba_adminpass: Secret007
-samba_krbtgtpass: Secret007
+samba_adminpass: Secret007!
+samba_krbtgtpass: Secret007!
 samba_realm: ACME.COM.LOCAL

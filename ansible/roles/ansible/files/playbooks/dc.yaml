@@ -2,6 +2,6 @@
 - name: Active Directory Domain Controller 
   hosts: dc
   roles:
-   - role: dc
    - role: sudo
    - role: ssh
+   - role: dc
