@@ -6,6 +6,13 @@
     packages:
     - bind9 
 
+- name: bind defaults
+  lineinfile:
+    path: /etc/default/bind9
+    regexp: ^OPTIONS
+    line: OPTIONS="-u bind -4"
+  notify: restart bind9
+
 - name: config file 
   template: src=named.conf.local.j2 dest=/etc/bind/named.conf.local
   notify: restart bind9
