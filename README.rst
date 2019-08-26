@@ -14,6 +14,8 @@ Note that users are disabled after issuing commands with adcli. Account needs to
   $ echo Secret007! | kinit Administrator
   $ adcli create-user alice --domain=acme.com.local --display-name="Alice Alison" --mail=alice@acme.com.local --login-ccache=/tmp/krb5cc_0
   $ adcli create-user bob --domain=acme.com.local --display-name="Bob Bobson" --mail=bob@acme.com.local --login-ccache=/tmp/krb5cc_0
+  # alice/Alpha123
+  # bob/Bravo123
   
 Machines
 --------
