@@ -6,6 +6,8 @@ ACME Corporate Network (ACN) helps you setup a, VirtualBox based, internal netwo
 Users
 -----
 
+Note that users are disabled after issuing commands with adcli. Account needs to be "enabled" in AD Users & Computers, a password needs to be set (could perhaps be issued by doing "echo Alpha01234! | adcli ...")
+
 .. code:: bash
 
   $ apt-get install krb5-user adcli
