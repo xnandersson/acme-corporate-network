@@ -8,6 +8,12 @@ dc_macaddress: 08:00:27:23:89:C6
 workstation_macaddress: 08:00:27:23:89:C8
 workstation_static_lease: 192.168.42.10
 
+windows2012_macaddress: 08:00:27:23:89:CA
+windows2012_static_lease: 192.168.42.5
+
+srv_02_macaddress: 08:00:27:23:89:CD
+srv_02_static_lease: 192.168.42.7
+
 udhcpd_start: 192.168.42.2
 udhcpd_end: 192.168.42.20
 udhcpd_remaining: "yes"
