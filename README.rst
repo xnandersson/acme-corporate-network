@@ -71,3 +71,7 @@ Setup
     HostName acme_router
     user deploy
     IdentityFile ~/.ssh/deploy_rsa
+
+Links
+-----
+- https://www.youtube.com/watch?v=EgqQMDw4T4Q How to do this with Vagrant Packer instead.
