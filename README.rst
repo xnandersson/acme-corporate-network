@@ -74,4 +74,5 @@ Setup
 
 Links
 -----
+- https://www.packer.io/downloads.html
 - https://www.youtube.com/watch?v=EgqQMDw4T4Q How to do this with Vagrant Packer instead.
