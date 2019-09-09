@@ -5,6 +5,7 @@ source local.config
 VBOX_NAME="Acme Router"
 VBOX_NAME_ALPHANUMERIC="acmerouter"
 VBOX_BRIDGEADAPTER="eno1"
+VBOX_NIC_MACADDRESS=0800272389CB
 
 VBoxManage createvm --name "${VBOX_NAME}" --ostype ${VBOX_OSTYPE} --register
 VBoxManage createmedium --filename "${VBOX_DIR}/${VBOX_NAME}/${VBOX_NAME_ALPHANUMERIC}.vdi" --size 20240
@@ -19,3 +20,4 @@ VBoxManage modifyvm "${VBOX_NAME}" --cpus 2
 VBoxManage modifyvm "${VBOX_NAME}" --audio none
 VBoxManage modifyvm "${VBOX_NAME}" --nic1 bridged --bridgeadapter1 ${VBOX_BRIDGEADAPTER}
 VBoxManage modifyvm "${VBOX_NAME}" --nic2 intnet
+VBoxManage modifyvm "${VBOX_NAME}" --macaddress1 ${VBOX_NIC_MACADDRESS}
